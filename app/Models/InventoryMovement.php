@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Product;
 
 #[Fillable([
@@ -14,6 +15,8 @@ use App\Models\Product;
 ])]
 class InventoryMovement extends Model
 {
+    use HasFactory;
+    
     protected $table = 'inventory_movements';
 
     public function product(){

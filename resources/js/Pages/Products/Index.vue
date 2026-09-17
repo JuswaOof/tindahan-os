@@ -2,15 +2,15 @@
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 
     defineProps({
-        categories: Array,
+        products: Array,
     });
 </script>
 
 <template>
     <AuthenticatedLayout>
         <h1 class="text-2xl font-bold">
-            Categories
+            Products
         </h1>
-    {{ categories }}
+    {{ products }}
     </AuthenticatedLayout>
 </template>

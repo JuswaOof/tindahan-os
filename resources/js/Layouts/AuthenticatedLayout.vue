@@ -25,6 +25,10 @@ const page = usePage()
                 <NavigationLink href="/categories">
                     Categories
                 </NavigationLink>
+
+                <NavigationLink href="/products">
+                    Products
+                </NavigationLink>
             </nav>
         </aside>
 

@@ -6,6 +6,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 // Public routes
 Route::get('/', function () {
@@ -24,6 +25,8 @@ Route::middleware('auth')->group(function () {
     ->name('dashboard');
     Route::get('/categories', [CategoryController::class, 'index'])
     ->name('categories.index');
+    Route::get('/products', [ProductController::class, 'index'])
+    ->name('products.index');
 
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

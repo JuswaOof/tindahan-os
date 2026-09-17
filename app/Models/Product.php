@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Category;
 use App\Models\InventoryMovement;
 
@@ -16,6 +17,7 @@ use App\Models\InventoryMovement;
 ])]
 class Product extends Model
 {
+    use HasFactory;
     protected $table = 'products';
 
     public function category(){
