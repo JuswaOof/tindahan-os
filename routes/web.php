@@ -4,6 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
+
 // Public routes
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -17,9 +20,10 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated routes
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
+    Route::get('/categories', [CategoryController::class, 'index'])
+    ->name('categories.index');
 
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
