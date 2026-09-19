@@ -44,7 +44,7 @@
                         :colspan="columns.length + 1"
                         class="px-6 py-12 text-center text-sm text-gray-500"
                     >
-                        No categories found.
+                        No results found.
                     </td>
                 </tr>
 

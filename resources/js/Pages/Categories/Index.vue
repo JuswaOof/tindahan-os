@@ -1,6 +1,6 @@
 <script setup>
     import { useForm, usePage } from '@inertiajs/vue3'
-    import { ref, watch } from 'vue'
+    import { ref } from 'vue'
 
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
     import DataTable from '@/Components/DataTable.vue'
@@ -79,21 +79,10 @@
         })
     }
 
-    watch(
-        () => page.props.flash?.error,
-        (message) => {
-            console.log('Flash error:', message)
-
-            if (message) {
-                showToast('error', message)
-            }
-        },
-        { immediate: true }
-    )
-
     const closeCategoryModal = () => {
         showCategoryModal.value = false
         form.reset()
+        form.clearErrors()
         editingCategory.value = null
     }
 
@@ -205,7 +194,6 @@
                     </button>
                 </div>
             </form>
-            
         </Modal>
 
         <DataTable

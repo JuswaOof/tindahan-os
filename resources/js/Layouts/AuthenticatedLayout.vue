@@ -1,8 +1,22 @@
 <script setup>
-import { router, usePage } from '@inertiajs/vue3'
-import NavigationLink from '@/Components/NavigationLink.vue'
+    import { router, usePage } from '@inertiajs/vue3'
+    import { computed } from 'vue'
 
-const page = usePage()
+    import NavigationLink from '@/Components/NavigationLink.vue'
+
+    const page = usePage()
+
+    const pageTitles = {
+        '/dashboard': 'Dashboard',
+        '/categories': 'Categories',
+        '/products': 'Products',
+    }
+
+    const pageTitle = computed(() => {
+        const path = page.url.split('?')[0]
+
+        return pageTitles[path] ?? 'TindahanOS'
+    })
 </script>
 
 <template>
@@ -37,7 +51,7 @@ const page = usePage()
             <!-- Topbar -->
             <header class="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-6">
                 <h2 class="text-lg font-semibold text-gray-800">
-                    {{ page.url === '/dashboard' ? 'Dashboard' : 'Categories' }}
+                    {{ pageTitle }}
                 </h2>
 
                 <div class="flex items-center gap-4">

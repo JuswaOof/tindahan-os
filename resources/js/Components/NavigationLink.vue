@@ -12,7 +12,7 @@
     const page = usePage()
 
     const isActive = computed(() => {
-        return page.url === props.href
+        return page.url.split('?')[0] === props.href
     })
 </script>
 
